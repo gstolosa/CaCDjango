@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock%}</title>
+    {% load static %}
+    <link href="{% static 'core/css/style.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2ee83095f0.js" crossorigin="anonymous"></script>
+
+</head>
+<body style="background-image: url('{% block background %}{% endblock %}')">
+    <div class="contenido-navegacion">
+        <div class="contenido-frase">
+            <p class="frase">Decora tu casa con nuestros productos artesanales</p>
+        </div>
+        <header class="header"> 
+            <div class="logo-header"> 
+                <img src="{% static 'core/img/logo.png' %}" alt="Le Dutra" class="logo"> 
+            </div>
+            <nav class="nav-bar">
+                <input type="checkbox" id="check">   
+                <label for="check" class="checkbtn">
+                    <i class="menu-icono"><img src="{% static 'core/img/menu_mobile.png' %}" alt="menu"></i>
+                </label>
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}" class="link">Home</a>
+                    </li>
+                    <li>    
+                        <a href="{% url 'about_us' %}" class="link">Conocenos</a>
+                    </li>    
+                    <li>
+                        <a href="{% url 'products' %}" class="link">Productos</a>
+                    </li>    
+                    <li>
+                        <a href="{% url 'contact' %}" class="link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>    
+
+    {% block content %}
+    {% endblock%}
+     
+    <section class="iconos">  
+        <a href="https://www.facebook.com/Grace-Marino-Deco-1734572823506326" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/gracemarino.deco/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.link/enfisf"  target="blank_"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:cgaston.dutra@gmail.com" target="_blank"><i class="fa-solid fa-envelope" ></i></a>
+    </section>
+        
+    <footer class="copyright">
+        <p>Todos los derechos reservados 2022 - Le Dutra Home Deco</p>
+    </footer>
+</body>
+</html>
