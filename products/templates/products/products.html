@@ -7,6 +7,18 @@
     <p>Todas nuestras opciones son realizadas a medida y gusto de nuestros clientes.</p>
 </section>
 <section class="contenedora-productos">
+    {% for category in categories %}
+        <h3>{{category.title}}</h3>
+        <p>{{category.description}}</p>
+        <div class="navproductos">
+            {% for product in category.product_set.all %}
+                <div class="productos">   
+                    <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <!--
     <h3>Almohadones</h3>
     <p>De tusor. Características: con detalles en macramé y crochet , rellenos de vellon siliconado. Tamaño: personalizado.</p>  
     <div class="navproductos">
@@ -76,5 +88,6 @@
             </div>
         {% endfor %}
     </div>
+    -->
 </section>    
 {% endblock%}
