@@ -9,106 +9,72 @@
 <section class="contenedora-productos">
     <h3>Almohadones</h3>
     <p>De tusor. Características: con detalles en macramé y crochet , rellenos de vellon siliconado. Tamaño: personalizado.</p>  
-    
-    {% for product in products %}
-        <div class="navproductos">
+    <div class="navproductos">
+        {% for product in products %}
             <div class="productos">   
-                <img src="{{product.image.url}}" alt="{{product.title}}" >
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
     <h3>Baldes</h3>
     <p>De pintura reciclados. Características: detalles en decupage y yute. Tamaño: 4 litros, 10 litros y 20 litros.</p>
     <div class="navproductos">
-        <div class="productos">
-            <img src="{% static 'core/img/baldes_01.jpg' %}" alt="Baldes">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/baldes_02.jpg' %}" alt="Baldes">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/baldes_03.jpg' %}" alt="Baldes">
-        </div>
+        {% for product in products %}
+            <div class="productos">   
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+            </div>
+        {% endfor %}
     </div>
 
     <h3>Cajas organizadoras multiuso</h3>
     <p>De pino. Características: detalles en decupage y pintura. Tamaño: 13cm x 37cm y 24cm x 37cm.</p> 
     <div class="navproductos">
-        <div class="productos">
-            <img src="{% static 'core/img/cajas_01.jpg' %}" alt="Caja organizadora">
-        </div>
-        <div class="productos">  
-            <img src="{% static 'core/img/cajas_02.jpg' %}" alt="Caja organizadora">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/cajas_03.jpg' %}" alt="Caja organizadora">
-        </div>
+        {% for product in products %}
+            <div class="productos">   
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+            </div>
+        {% endfor %}
     </div>
 
     <h3>Crochet y macramé</h3>
     <p>Caminos, eco-bolsas, móviles y sujetadores de cortina</p> 
     <div class="navproductos">
-        <div class="productos">  
-            <img src="{% static 'core/img/crochet_macrame_01.jpg' %}" alt="Bordado">
-        </div>
-        <div class="productos"> 
-            <img src="{% static 'core/img/crochet_macrame_02.jpg' %}" alt="Cartera al crochet">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/crochet_macrame_03.jpg' %}" alt="Colgante">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/crochet_macrame_04.jpg' %}" alt="Colgante">
-        </div>
+        {% for product in products %}
+            <div class="productos">   
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+            </div>
+        {% endfor %}
     </div>
     
-    <h3>Lamparas</h3>
+    <h3>Lámparas</h3>
     <p>Trabajadas con hilo de yute. Tamaño: personalizado.</p>
     <div class="navproductos">
-        <div class="productos"> 
-            <img src="{% static 'core/img/lamparas_01.jpg' %}" alt="Lamparas">
-        </div>
-        <div class="productos">  
-            <img src="{% static 'core/img/lamparas_02.jpg' %}" alt="Lamparas">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/lamparas_03.jpg' %}" alt="Lamparas">
-        </div>
+        {% for product in products %}
+            <div class="productos">   
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+            </div>
+        {% endfor %}
     </div> 
 
     <h3>Difusores</h3>
     <p>Clásicos y con flor de tusor. Características: con varrillas de rattan, distintas fragancias. Tamaño: 60ml, 100ml y 250ml</p>
     <div class="navproductos">
-        <div class="productos"> 
-            <img src="{% static 'core/img/difusores_01.jpg' %}" alt="Difusores">
-        </div>
-        <div class="productos">  
-            <img src="{% static 'core/img/difusores_02.jpg' %}" alt="Difusores">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/difusores_03.jpg' %}" alt="Flor de tusor">
-        </div>
-        <div class="productos">
-        <img src="{% static 'core/img/difusores_04.jpg' %}" alt="Flor de tusor">
-        </div>
+        {% for product in products %}
+            <div class="productos">   
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+            </div>
+        {% endfor %}
     </div> 
     
     <h3>Mandala, puff y un poco más</h3>
     <p>Las mandalas son de hilos de algodón al crochet. <br> 
     Los puff realizados con neumaticos reciclados y tejidos con totora.</p> 
     <div class="navproductos">
-        <div class="productos">
-             <img src="{% static 'core/img/mandalas_puffs_01.jpg' %}" alt="Mandala">
-        </div>
-        <div class="productos"> 
-            <img src="{% static 'core/img/mandalas_puffs_02.jpg' %}" alt="Mandala">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/mandalas_puffs_03.jpg' %}" alt="Puff">
-        </div>
-        <div class="productos">
-            <img src="{% static 'core/img/mandalas_puffs_04.jpg' %}" alt="Macramé">
-        </div>
+        {% for product in products %}
+            <div class="productos">   
+                <img src="{{product.image.url}}" alt="{{product.title|capfirst}}" >
+            </div>
+        {% endfor %}
     </div>
 </section>    
 {% endblock%}

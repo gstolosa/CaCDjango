@@ -17,7 +17,7 @@
         </div>
         <header class="header"> 
             <div class="logo-header"> 
-                <img src="{% static 'core/img/logo.png' %}" alt="Le Dutra" class="logo"> 
+                <img src="{% static 'core/img/logo.png' %}" alt="Logo" class="logo"> 
             </div>
             <nav class="nav-bar">
                 <input type="checkbox" id="check">   
@@ -37,6 +37,9 @@
                     <li>
                         <a href="{% url 'contact' %}" class="link">Contacto</a>
                     </li>
+                    <li>
+                        <a href="/admin/" class="link">{% if request.user.is_staff %}Admin{% else %}Acceder{% endif %}</a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -53,7 +56,7 @@
     </section>
         
     <footer class="copyright">
-        <p>Todos los derechos reservados 2022 - Le Dutra Home Deco</p>
+        <p>TP Django - Codo a Codo 2022 - Grupo 4 - Biondani, Dutra, Paloma, Segura, Tolosa</p>
     </footer>
 </body>
 </html>

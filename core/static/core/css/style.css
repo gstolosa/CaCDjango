@@ -7,7 +7,6 @@ html {
 }
 
 body {
-    /*background-image: url("principal.jpg");*/
     background-attachment: fixed;
     font-family: Helvetica, sans-serif;
     margin: 0;
@@ -107,6 +106,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 30px;
+    background-color: #cdc4c5;
+    opacity: 0.7;    
 }
 
 .iconos i {
@@ -118,12 +119,12 @@ body {
 .copyright {
     background-color: #cdc4c5;
     opacity: 0.7;
-    height: 30px; 
+    height: 32px; 
 }
 
 .copyright p {
-    font-size: 1rem;
-    letter-spacing: 0.5rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
     text-align: center;
     padding: 10px;
 }
@@ -177,7 +178,7 @@ body {
 
 .contenedora-productos p {
     font-family: sans-serif;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 500;
     color: #110e0ebb;
     text-align: center;
@@ -272,9 +273,21 @@ textarea {
     cursor: pointer ;
 }
 
+
+@media screen and (max-width: 1024px) {
+    .logo {
+        width: 150px;
+    }
+
+    .link {
+        font-size: 1.4rem;
+        letter-spacing: 0rem;
+    }    
+}
+
 /*COMIENZA MEDIA QUERY TABLET*/
 
-@media  screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .frase {
         font-size: 1.3rem;
         letter-spacing: .4rem;
@@ -282,21 +295,14 @@ textarea {
     }
 
     .copyright p {
-        font-size: 0.9rem;
-        letter-spacing: 0.3rem;
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
     }
-     
-
   
     .logo-header {
         float: left;
         margin-top: 8px;    
     }
-
-    .logo {
-        width: 150px;
-    }
-    
 
     .checkbtn {
         display: block;
@@ -310,7 +316,12 @@ textarea {
         top: -50px;
         right: 15px;
     }
-    
+
+    .link {
+        font-size: 1.6rem;
+        letter-spacing: 0.5rem;
+    }
+
     .nav-bar {
         align-self: flex-end;
     }
@@ -336,6 +347,10 @@ textarea {
         right: 10px;
         transition: all .30s;
     }
+
+    .productos {
+        width: 40%;
+    }
 }
 
 
@@ -344,7 +359,6 @@ textarea {
 @media  screen and (max-width: 599px) {
 
     body {
-        background-image: url("../multimedia/imagenes/lampara.jpeg");
         background-size: cover;
     } 
 
@@ -361,12 +375,11 @@ textarea {
         
     }
  
-    .productos {
-        width: 40%;
-    }
+
    
     .copyright p {
-        font-size: .75rem;
+        font-size: 1rem;
+        letter-spacing: 0rem;
         padding: 8px;
         margin: 0;
     }
