@@ -235,18 +235,22 @@ h3 {
     border-radius: 20px;
 }
 
-form div {
+/* form div {
     margin: 5px;
     padding: 5px;
     text-align: center;
-}
+} */
 
 label {
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
     font-size: 16px;
     display: inline-block;
     text-align: center;
     color:#f7f7f7bb;
     letter-spacing: 0.2em;
+    border: white;
 }
 
 input {
@@ -261,16 +265,18 @@ input {
     border-radius: 5px;
 }
 
+
 textarea {
+    display: block;
     resize: none;
     margin-top: 5px;
     border-radius: 6px;
 }
 
 .boton {
-    padding: 8px 30px;
+    padding: 0px 30px;
     border-radius: 10px;
-    cursor: pointer ;
+    cursor: pointer;
 }
 
 
@@ -374,9 +380,7 @@ textarea {
         margin-top: 3px;
         
     }
- 
-
-   
+    
     .copyright p {
         font-size: 1rem;
         letter-spacing: 0rem;

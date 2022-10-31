@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% block title %}Contacto{% endblock%}
+{% load static %}
+{% block background %}{% static 'core/img/fondo.jpg' %}{% endblock %}
+{% block content %}
+<section class="contenedora-productos">
+    <h2 class="tituloterciario">Dejanos un mensaje</h2>
+    <form action="{% url 'contact' %}" method="POST" class="formulario">
+        {% csrf_token %}
+            {{ form }}
+
+        <div class="cajabotones">        
+            <input type="submit" value="Enviar" class="boton">
+        </div>        
+    </form>
+</section>
+{% endblock%}
