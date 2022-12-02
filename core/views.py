@@ -23,7 +23,7 @@ class ProductoView(View):
         return render(request, self.template_name, {'formulario': form})
 
     def post(self, request, *arg, **kwargs):
-        form= self.form_class(request.POST)
+        form= self.form_class(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('administracion')

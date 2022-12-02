@@ -26,5 +26,5 @@ class ProductForm(forms.ModelForm):
         label='Categoria',
         queryset=Category.objects.all(),
         widget=forms.Select(attrs={'class':'form-control'}),
-        to_field_name= "category"
+        to_field_name= "title"
         )
