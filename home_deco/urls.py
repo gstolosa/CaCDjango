@@ -11,6 +11,9 @@ urlpatterns = [
     path('products/', products_views.products, name='products'),
     path('contact/', contact_views.contact, name='contact'),
     path('admin/', admin.site.urls),
+    path('administracion/', core_views.administracion, name='administracion'),
+    path('administracion/crear_producto', core_views.ProductoView.as_view(), name='crear_producto'),
+
 ]
 
 if settings.DEBUG:

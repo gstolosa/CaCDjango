@@ -1,0 +1,21 @@
+{% extends "administracion/basead.html" %}
+
+{% block titulo %}Editar producto{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Productos</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="">Administracion</a></li>
+    <li class="breadcrumb-item active">Editar Estudiante</li>
+</ol>
+
+<div class="card">
+    <div class="card-header">Edicion de productos</div>
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'administracion/productos/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

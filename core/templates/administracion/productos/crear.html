@@ -1,0 +1,19 @@
+{% extends "administracion/basead.html" %}
+
+{% load static %}
+
+{% block titulo %} Nuevo Producto {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">Producto Nuevo</div>
+    <div class="card-body">
+        <form action="{% url 'crear_producto' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'administracion/form.html' %}
+        
+    </div>
+</div>
+
+{% endblock %}

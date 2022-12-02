@@ -19,7 +19,7 @@ class Category(models.Model):
     )
 
     class Meta:
-        verbose_name = 'cateoría'
+        verbose_name = 'categoría'
         verbose_name_plural = 'categorías'
         ordering = ["-created"]  
     
