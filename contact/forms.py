@@ -1,4 +1,7 @@
+from django.forms import ModelForm
 from django import forms
+from .models import Contact
+
 import re
 
 class ValidateField():
@@ -14,38 +17,18 @@ class ValidateField():
         exp = re.compile(r"^[\w.-]+@[\w.-]+\.[a-zA-Z]+$")
         return exp.match(email)
 
+class ContactForm(ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['fname', 'lname', 'phone', 'email', 'message']
+        labels = {
+            'fname': 'Nombre',
+            'lname': 'Apellido',
+            'phone': 'Celular',
+            'email': 'Correo Electrónico',
+            'message': 'Mensaje',
+        }
 
-class ContactForm(forms.Form):
-    
-    fname = forms.CharField(
-        label="Nombre",
-        max_length=40,
-        widget=forms.TextInput()
-    )
-
-    lname = forms.CharField(
-        label="Apellido",
-        max_length=40,
-        widget=forms.TextInput()
-    )
-
-    phone = forms.CharField(
-        label="Celular",
-        max_length=10,
-        widget=forms.TextInput()        
-    )
-    
-    email = forms.EmailField(
-        label="Correo Electrónico",
-        max_length=40,
-        widget=forms.EmailInput()        
-    )
-    
-    message = forms.CharField(
-        label="Mensaje",
-        widget=forms.Textarea()
-    )
-    
     def clean_fname(self):
         fname = self.cleaned_data.get("fname")
         if not ValidateField.is_valid_name(fname):
@@ -73,5 +56,3 @@ class ContactForm(forms.Form):
             raise forms.ValidationError("La dirección de correo electrónico no es válida")
         else:
             return email
-
-        
