@@ -1,0 +1,19 @@
+{% extends "administracion/basead.html" %}
+
+{% load static %}
+
+{% block titulo %} Editar categoria {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">Editar categoria</div>
+    <div class="card-body">
+        <form action="{% url 'cat_editar' id_cat %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'administracion/form.html' %}
+        
+    </div>
+</div>
+
+{% endblock %}

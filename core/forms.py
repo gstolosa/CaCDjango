@@ -28,3 +28,9 @@ class ProductForm(forms.ModelForm):
         widget=forms.Select(attrs={'class':'form-control'}),
         to_field_name= "title"
         )
+
+class CategoryForm(forms.ModelForm):
+    
+    class Meta:
+        model=Category
+        fields='__all__'

@@ -13,7 +13,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('administracion/', core_views.administracion, name='administracion'),
     path('administracion/crear_producto', core_views.ProductoView.as_view(), name='crear_producto'),
-    path('administracion/editar_producto/<int:id_prod>/', core_views.prod_editar, name='prod_editar')
+    path('administracion/editar_producto/<int:id_prod>/', core_views.prod_editar, name='prod_editar'),
+    path('administracion/eliminar_producto/<int:id>/', core_views.prod_eliminar, name='prod_eliminar'),
+    path('administracion/crear_categoria', core_views.CategoryView.as_view(), name='crear_categoria'),
+    path('administracion/editar_categoria/<int:id_cat>/', core_views.cat_editar, name='cat_editar'),
+    path('administracion/eliminar_categoria/<int:id>/', core_views.cat_eliminar, name='cat_eliminar'),
 
 ]
 

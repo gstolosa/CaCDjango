@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from products.models import Product
-from core.forms import ProductForm
+from products.models import Product,Category
+from core.forms import ProductForm, CategoryForm
 from django.views import View
 from django.http import HttpResponse
 
@@ -37,3 +37,37 @@ def prod_editar(request, id_prod):
         formulario.save()
         return redirect('administracion')                
     return render(request, 'administracion/productos/editar.html',{'formulario':formulario, 'id_prod':id_prod})
+
+def prod_eliminar(request,id):
+    producto=Product.objects.get(id=id)
+    producto.delete()
+    return redirect('administracion')
+
+
+class CategoryView(View):
+    form_class=CategoryForm
+    template_name= 'administracion/categorias/crear_cat.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'formulario': form})
+
+    def post(self, request, *arg, **kwargs):
+        form= self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('administracion')
+        return render(request, self.template_name, {'formulario':form})
+
+def cat_editar(request, id_cat):
+    categoria= Category.objects.get(id=id_cat)
+    formulario = CategoryForm(request.POST or None, instance=categoria)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('administracion')                
+    return render(request, 'administracion/categorias/editar_cat.html',{'formulario':formulario, 'id_cat':id_cat})
+
+def cat_eliminar(request,id):
+    categoria=Category.objects.get(id=id)
+    categoria.delete()
+    return redirect('administracion')
