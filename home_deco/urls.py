@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views as core_views
 from products import views as products_views
 from contact import views as contact_views
@@ -11,6 +11,9 @@ urlpatterns = [
     path('products/', products_views.products, name='products'),
     path('contact/', contact_views.contact, name='contact'),
     path('admin/', admin.site.urls),
+    # Path de autenticación
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('registration.urls')),
 ]
 
 if settings.DEBUG:

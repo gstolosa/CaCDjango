@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,6 +133,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#Auth redirects
+#LOGIN_REDIRECT_URL = 'products'
+LOGOUT_REDIRECT_URL = 'home'
+
+#Emails
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    #Para crear un directorio en nuestro proyecto (para poder leerlo como si fuera un mail)
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mails")
+else: 
+    #Configuración de las variables de entorno para producción -email
+    pass
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
