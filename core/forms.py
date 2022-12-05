@@ -5,7 +5,7 @@ class ProductForm(forms.ModelForm):
     
     class Meta:
         model=Product
-        fields= ['title', 'description', 'image', 'category']
+        fields= ['id', 'title', 'description', 'image', 'category']
     
     title=forms.CharField(
         label='Titulo',
@@ -17,7 +17,7 @@ class ProductForm(forms.ModelForm):
         widget=forms.Textarea(attrs={'class':'form-control'})
     )
 
-    image=forms.FileField(
+    image=forms.ImageField(
         label='Imagen',
         widget=forms.FileInput(attrs={'class':'form-control'})
     )
