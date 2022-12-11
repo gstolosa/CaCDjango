@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/2ee83095f0.js" crossorigin="anonymous"></script>
 
 </head>
-<body style="background-image: url('{% block background %}{% endblock %}')">
+<body style="background-image: url('{% block background %}{% static 'core/img/fondo.jpg' %}{% endblock %}')">
     <div class="contenido-navegacion">
         <div class="contenido-frase">
             <p class="frase">Decora tu casa con nuestros productos artesanales</p>
@@ -48,7 +48,7 @@
                     </li>
                     {% else %}
                     <li>
-                        <a href="{% url 'logout' %}" class="link">Perfil</a>
+                        <a href="{% url 'profile' %}" class="link">Perfil</a>
                     </li>
                     <li>
                         <a href="{% url 'logout' %}" class="link">Salir</a>
