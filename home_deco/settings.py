@@ -135,7 +135,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 #Auth redirects
-#LOGIN_REDIRECT_URL = 'products'
+LOGIN_REDIRECT_URL = 'products'
 LOGOUT_REDIRECT_URL = 'home'
 
 #Emails
@@ -144,8 +144,14 @@ if DEBUG:
     #Para crear un directorio en nuestro proyecto (para poder leerlo como si fuera un mail)
     EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mails")
 else: 
-    #Configuración de las variables de entorno para producción -email
-    pass
+    #Config production
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = 'apikey' #APIKEY Sendgrid
+    EMAIL_HOST_PASSWORD = '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' 
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'tpdjango@yahoo.com' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
