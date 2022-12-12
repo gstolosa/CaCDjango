@@ -11,11 +11,9 @@ urlpatterns = [
     path('products/', products_views.products, name='products'),
     path('contact/', contact_views.contact, name='contact'),
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-    # Path de autenticación
+    # Path de autenticación y registro
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
-=======
     path('administracion/', core_views.administracion, name='administracion'),
     path('administracion/indexcat', core_views.indexcat, name='indexcat'),
     path('administracion/crear_producto', core_views.ProductoView.as_view(), name='crear_producto'),
@@ -24,8 +22,6 @@ urlpatterns = [
     path('administracion/crear_categoria', core_views.CategoryView.as_view(), name='crear_categoria'),
     path('administracion/editar_categoria/<int:id_cat>/', core_views.cat_editar, name='cat_editar'),
     path('administracion/eliminar_categoria/<int:id>/', core_views.cat_eliminar, name='cat_eliminar'),
-
->>>>>>> form-ara
 ]
 
 if settings.DEBUG:

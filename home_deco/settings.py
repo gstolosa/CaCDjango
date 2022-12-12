@@ -80,17 +80,14 @@ WSGI_APPLICATION = 'home_deco.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-=======
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'home_deco',
         'USER': 'postgres',
-        'PASSWORD': '155715539tuchis',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '5432',
->>>>>>> form-ara
     }
 }
 
