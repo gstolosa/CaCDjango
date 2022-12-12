@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,6 +133,25 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#Auth redirects
+LOGIN_REDIRECT_URL = 'products'
+LOGOUT_REDIRECT_URL = 'home'
+
+#Emails
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    #Para crear un directorio en nuestro proyecto (para poder leerlo como si fuera un mail)
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mails")
+else: 
+    #Config production
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = 'apikey' #APIKEY Sendgrid
+    EMAIL_HOST_PASSWORD = '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' 
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'tpdjango@yahoo.com' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
