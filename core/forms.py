@@ -1,6 +1,7 @@
 from django import forms
 from products.models import Product,Category
 
+
 class ProductForm(forms.ModelForm):
     
     class Meta:
@@ -25,8 +26,8 @@ class ProductForm(forms.ModelForm):
     category=forms.ModelChoiceField(
         label='Categoria',
         queryset=Category.objects.all(),
-        widget=forms.Select(attrs={'class':'form-control'}),
-        to_field_name= "title"
+        to_field_name= "title",
+        widget=forms.Select(attrs={'class': 'form-control'})
         )
 
 class CategoryForm(forms.ModelForm):

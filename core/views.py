@@ -14,21 +14,28 @@ def administracion(request):
     products= Product.objects.all()
     return render(request, "administracion/index.html", {'products':products})
 
+def indexcat(request):
+    categorias= Category.objects.all()
+    return render(request, "administracion/categorias/indexcat.html", {'categorias':categorias})
+
 
 class ProductoView(View):
+    
     form_class=ProductForm
     template_name= 'administracion/productos/crear.html'
 
     def get(self, request, *args, **kwargs):
+        categorias=Category.objects.all()
         form = self.form_class()
-        return render(request, self.template_name, {'formulario': form})
+        return render(request, self.template_name, {'formulario': form, 'categorias':categorias})
 
     def post(self, request, *arg, **kwargs):
+        categorias=Category.objects.all()
         form= self.form_class(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('administracion')
-        return render(request, self.template_name, {'formulario':form})
+        return render(request, self.template_name, {'formulario':form, 'categorias':categorias})
 
 def prod_editar(request, id_prod):
     producto= Product.objects.get(id=id_prod)
@@ -56,7 +63,7 @@ class CategoryView(View):
         form= self.form_class(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('administracion')
+            return redirect('indexcat')
         return render(request, self.template_name, {'formulario':form})
 
 def cat_editar(request, id_cat):
@@ -64,10 +71,10 @@ def cat_editar(request, id_cat):
     formulario = CategoryForm(request.POST or None, instance=categoria)
     if formulario.is_valid() and request.POST:
         formulario.save()
-        return redirect('administracion')                
+        return redirect('indexcat')                
     return render(request, 'administracion/categorias/editar_cat.html',{'formulario':formulario, 'id_cat':id_cat})
 
 def cat_eliminar(request,id):
     categoria=Category.objects.get(id=id)
     categoria.delete()
-    return redirect('administracion')
+    return redirect('indexcat')

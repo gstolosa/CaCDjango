@@ -1,0 +1,42 @@
+{% extends "administracion/basead.html" %}
+
+{% load static %}
+
+{% block titulo %} Lista de categorias {% endblock %}
+
+{% block content %} 
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            
+            <th scope="col">Titulo</th>
+            
+            <th scope="col">Descripcion</th>
+            <th scope="col">Creación</th>
+            <th scope="col">Acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+            <tr>
+
+            <td>{{ categoria.title }}</td>
+
+            <td>{{ caregoria.description }}</td>
+            <td>{{ categoria.created }}</td>
+            <td>
+                <a href="{% url 'cat_editar' categoria.id %}" title="Editar" class="btn btn-warning">Editar<i class="fas fa-pencil"></i></a>|
+                <a href="{% url 'cat_eliminar' categoria.id %}" title="Eliminar" class="btn btn-danger">Borrar<i class="fas fa-trash"></i></a> <td>
+             <td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<div>
+
+{% endblock %}

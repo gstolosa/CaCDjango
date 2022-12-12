@@ -22,10 +22,16 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Productos <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'administracion' %}">Productos <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'indexcat' %}">Categorias <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'crear_producto' %}">Crear Producto <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categorias</a>
+                        <a class="nav-link" href="{% url 'crear_categoria' %}">Crear Categoria</a>
                     </li>                
                 </ul>
                 

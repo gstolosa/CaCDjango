@@ -27,7 +27,9 @@
             <td>{{ product.category }}</td>
             <td>{{ product.description }}</td>
             <td>{{ product.created }}</td>
-            <td> Editar | Eliminar <td>
+            <td>
+                <a href="{% url 'prod_editar' product.id %}" title="Editar" class="btn btn-warning">Editar<i class="fas fa-pencil"></i></a>|
+                <a href="{% url 'prod_eliminar' product.id %}" title="Eliminar" class="btn btn-danger">Borrar<i class="fas fa-trash"></i></a> <td>
                 
             </tr>
             {% endfor %}
