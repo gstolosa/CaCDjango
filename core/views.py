@@ -3,6 +3,8 @@ from products.models import Product,Category
 from core.forms import ProductForm, CategoryForm
 from django.views import View
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
     return render(request, "core/home.html")
@@ -10,16 +12,18 @@ def home(request):
 def about(request):
     return render(request, "core/about.html")
 
+@login_required
 def administracion(request):
     products= Product.objects.all()
     return render(request, "administracion/index.html", {'products':products})
 
+@login_required
 def indexcat(request):
     categorias= Category.objects.all()
     return render(request, "administracion/categorias/indexcat.html", {'categorias':categorias})
 
 
-class ProductoView(View):
+class ProductoView(LoginRequiredMixin,View):
     
     form_class=ProductForm
     template_name= 'administracion/productos/crear.html'
@@ -37,6 +41,7 @@ class ProductoView(View):
             return redirect('administracion')
         return render(request, self.template_name, {'formulario':form, 'categorias':categorias})
 
+@login_required
 def prod_editar(request, id_prod):
     producto= Product.objects.get(id=id_prod)
     formulario = ProductForm(request.POST or None, request.FILES or None, instance=producto)
@@ -45,13 +50,14 @@ def prod_editar(request, id_prod):
         return redirect('administracion')                
     return render(request, 'administracion/productos/editar.html',{'formulario':formulario, 'id_prod':id_prod})
 
+@login_required
 def prod_eliminar(request,id):
     producto=Product.objects.get(id=id)
     producto.delete()
     return redirect('administracion')
 
 
-class CategoryView(View):
+class CategoryView(LoginRequiredMixin,View):
     form_class=CategoryForm
     template_name= 'administracion/categorias/crear_cat.html'
 
@@ -66,6 +72,8 @@ class CategoryView(View):
             return redirect('indexcat')
         return render(request, self.template_name, {'formulario':form})
 
+
+@login_required
 def cat_editar(request, id_cat):
     categoria= Category.objects.get(id=id_cat)
     formulario = CategoryForm(request.POST or None, instance=categoria)
@@ -74,6 +82,8 @@ def cat_editar(request, id_cat):
         return redirect('indexcat')                
     return render(request, 'administracion/categorias/editar_cat.html',{'formulario':formulario, 'id_cat':id_cat})
 
+
+@login_required
 def cat_eliminar(request,id):
     categoria=Category.objects.get(id=id)
     categoria.delete()

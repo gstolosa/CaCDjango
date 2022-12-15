@@ -14,7 +14,7 @@
 
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <a class="navbar-brand" href="#">Administración</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Home Deco</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,8 +38,8 @@
                 <div class="dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hola Usuario</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Configuración</a>
-                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                        <a class="dropdown-item" href="{% url 'profile' %}">Configuración</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
                     </div>
                 <div>
             </div>
